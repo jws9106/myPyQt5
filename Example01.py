@@ -4,27 +4,21 @@ Created on 2021. 3. 2.
 @author: User
 '''
 
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget
 
-class Contact:
-    def __init__(self, name, phone_number, e_mail, addr):
-        self.name = name
-        self.phone_number = phone_number
-        self.e_mail = e_mail
-        self.addr = addr
-
-    def print_info(self):
-        print("Name: ", self.name)
-        print("Phone number: ", self.phone_number)
-        print("E-Mail: ", self.e_mail)
-        print("Address: ", self.addr)
+class MyApp(QWidget):
+    
+    def __init__(self):
+        super().__init__()
+        self.initUI()
         
-        
-def set_contact():
-    name = input("Name: ")
-    phone_number = input("Phone Number: ")
-    e_mail = input("E-mail: ")
-    addr = input("Address: ")
-    print(name, phone_number, e_mail, addr)
+    def initUI(self):
+        self.setWindowTitle('My First Application')
+        self.resize(400, 200)
+        self.show()
 
 if __name__ == '__main__':
-    set_contact()
+    app = QApplication(sys.argv)
+    ex = MyApp()
+    sys.exit(app.exec_())
